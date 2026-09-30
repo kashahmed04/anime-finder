@@ -1,0 +1,257 @@
+* {
+    font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #FF3C38;
+}
+
+#maininfo {
+    background-color: #3083DC;
+    padding: 0 5%;
+}
+
+header {
+    text-align: center;
+    color: white;
+    font-size: 38pt;
+    padding-top: 40px;
+}
+
+#menuitems {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width: min(1200px, 100%);
+    gap: 18px;
+    margin: 60px auto 0;
+    padding-bottom: 50px;
+    min-width: 0;
+}
+
+.break {
+    display: none;
+}
+
+/* Search */
+
+#searchterm {
+    flex: 1 1 500px;
+    min-width: 0;
+    height: 56px;
+    padding: 0 20px;
+    font-size: 14pt;
+    color: #FFF;
+    border: 2px solid white;
+    border-radius: 16px;
+    outline: none;
+    background-image: linear-gradient(45deg, #3083DC 0%, #FF3C38 100%);
+    transition: 0.2s;
+}
+
+#searchterm::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#searchterm:focus {
+    border-color: #FFF;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+/* Controls */
+
+#gobutton,
+#clearbutton,
+#generatebutton {
+    height: 56px;
+    border: none;
+    border-radius: 16px;
+    background-color: #FF3C38;
+    color: #FFF;
+    padding: 0 24px;
+    font-size: 13pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition:
+        transform 0.2s,
+        background-color 0.2s;
+}
+
+#gobutton,
+#clearbutton {
+    flex: 0 1 170px;
+}
+
+#generatebutton {
+    flex: 1 0 100%;
+}
+
+#gobutton:hover,
+#clearbutton:hover,
+#generatebutton:hover {
+    background-color: #e93431;
+    transform: translateY(-2px);
+}
+
+#gobutton:active,
+#clearbutton:active,
+#generatebutton:active {
+    transform: translateY(0);
+}
+
+/* Status */
+
+#status {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    padding: 30px 0 10px;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 22pt;
+    color: white;
+}
+
+#status p {
+    margin: 0;
+}
+
+/* Results */
+
+#content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    width: min(1400px, 90%);
+    margin: 0 auto;
+    padding: 30px 0 80px;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    padding: 24px 20px;
+    font-size: 15pt;
+    color: white;
+    background-color: #3083DC;
+    border-radius: 18px;
+}
+
+.result img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: 330px;
+    object-fit: contain;
+    border-radius: 12px;
+    transition: filter 0.2s;
+}
+
+.result a img:hover {
+    filter: brightness(75%);
+}
+
+.paragraphs {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 12pt;
+    color: white;
+}
+
+.result span {
+    margin-top: auto;
+}
+
+.result span a {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 25px;
+    color: #FFF;
+    text-decoration: none;
+    background-image: linear-gradient(45deg, #3083DC 0%, #FF3C38 100%);
+    transition:
+        transform 0.2s,
+        background-image 0.2s;
+}
+
+.result span a:hover {
+    background-image: linear-gradient(45deg, #236ebd 0%, #e93431 100%);
+    transform: translateY(-2px);
+}
+
+/* Tablet */
+
+@media screen and (max-width: 820px) {
+    header {
+        font-size: 30pt;
+    }
+
+    #menuitems {
+        margin-top: 40px;
+    }
+
+    #searchterm {
+        flex-basis: 100%;
+    }
+
+    #gobutton,
+    #clearbutton {
+        flex: 1 1 calc(50% - 9px);
+    }
+
+    #content {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+}
+
+/* Mobile */
+
+@media screen and (max-width: 520px) {
+    #maininfo {
+        padding: 0 20px;
+    }
+
+    header {
+        font-size: 24pt;
+        padding-top: 30px;
+    }
+
+    #menuitems {
+        margin-top: 30px;
+        gap: 12px;
+        padding-bottom: 30px;
+    }
+
+    #searchterm,
+    #gobutton,
+    #clearbutton,
+    #generatebutton {
+        width: 100%;
+        flex: 1 0 100%;
+    }
+
+    #status {
+        padding-top: 24px;
+        font-size: 18pt;
+    }
+
+    #content {
+        grid-template-columns: 1fr;
+        width: min(90%, 340px);
+        gap: 24px;
+        padding-top: 20px;
+    }
+
+    .result {
+        width: 100%;
+    }
+}
