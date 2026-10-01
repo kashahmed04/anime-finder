@@ -162,6 +162,9 @@ const randomButtonClicked = () => {
     let randomURL: string
     randomURL = "https://api.jikan.moe/v4/random/anime"
 
+    paragraph.innerHTML = "<b>Generating a random anime...</b>";
+    content.innerHTML = "";
+
     //console.log(randomURL);
     getDataPromises(randomURL);
 
